@@ -13,16 +13,16 @@ import { rule, generateRouterMaps } from 'halo-utils'
 let app, router
 
 app = new koa()
-router = new Router({ dir: './src/controllers' })
+router = new Router(conf.router)
 
-router.maps(generateRouterMaps({ dir: './src/controllers' }))
+router.maps(generateRouterMaps(conf.router))
 
 app.use(time())
-    .use(error())
-    .use(compress())
-    .use(jsonp())
-    .use(cors())
-    .use(logger())
-    .use(parameter())
+    .use(error(conf.error))
+    .use(compress(conf.compress))
+    .use(jsonp(conf.jsonp))
+    .use(cors(conf.cors))
+    .use(logger(conf.logger))
+    .use(parameter(conf.parameter))
     .use(router.routes())
     .listen(conf.port)
