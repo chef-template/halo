@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.0.2",
+  "version": "0.0.3",
   "dependencies": {
     "halo-annotation": "^1.0.3",
     "halo-compress": "^1.0.5",
@@ -10,8 +10,10 @@
     "halo-logger": "^1.0.4",
     "halo-parameter": "^1.0.3",
     "halo-router": "^1.1.1",
+    "halo-service": "^1.0.0",
     "halo-time": "^1.0.2",
     "halo-utils": "^1.0.2",
+    "halo-security": "^1.0.0",
     "koa": "^2.2.0"
   },
   "devDependencies": {
@@ -32,6 +34,7 @@
     "compile": "node_modules/.bin/babel src -d dist",
     "babel-node": "./node_modules/.bin/babel-node ./src/app.js",
     "nodemon": "./node_modules/.bin/nodemon --exec npm run babel-node",
+    "debug": "./node_modules/.bin/nodemon --exec ./node_modules/.bin/babel-node --inspect ./src/app.js",
     "tag": "node .tag add $1",
     "tag:delete": "git tag -d $1 && git push origin --delete tag $1"
   }
